@@ -1,6 +1,6 @@
 # Geo Dashboard
 
-**Live Site:** https://lazolla.github.io/Ladywood-Dashboard/
+**Live Site:** https://lazolla.github.io/ladywood-dashboard/
 
 Ladywood rehabilitation screening workspace for Mining Engineering (WITS · FEBE1004A).
 

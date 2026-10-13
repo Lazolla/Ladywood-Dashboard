@@ -11,10 +11,7 @@
     "lint": "eslint .",
     "format": "prettier --write ."
   },
-  "homepage": "https://lazolla.github.io/Ladywood-Dashboard/",
-  "overrides": {
-    "rolldown": "1.2.1"
-  },
+  "homepage": "https://lazolla.github.io/ladywood-dashboard/",
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.12",
