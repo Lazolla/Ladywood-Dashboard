@@ -1,0 +1,205 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system — "field survey" dashboard.
+ * Dark graphite base, survey-teal primary, hazard-amber accent.
+ * All colours are oklch semantic tokens. Never hardcode colours in components.
+ */
+
+@theme inline {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-land: var(--land);
+  --color-flood: var(--flood);
+  --color-ground: var(--ground);
+  --color-risk-high: var(--risk-high);
+  --color-risk-medium: var(--risk-medium);
+  --color-risk-low: var(--risk-low);
+
+  --color-chart-1: var(--land);
+  --color-chart-2: var(--flood);
+  --color-chart-3: var(--ground);
+  --color-chart-4: var(--risk-high);
+  --color-chart-5: var(--risk-medium);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --shadow-panel: 0 1px 0 0 oklch(1 0 0 / 6%) inset, 0 18px 40px -24px oklch(0 0 0 / 70%);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.97 0.004 180);
+  --foreground: oklch(0.26 0.018 185);
+  --surface: oklch(1 0 0);
+  --surface-2: oklch(0.955 0.007 180);
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--surface);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.46 0.085 183);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.92 0.015 180);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.93 0.007 180);
+  --muted-foreground: oklch(0.52 0.018 185);
+  --accent: oklch(0.94 0.025 80);
+  --accent-foreground: oklch(0.44 0.09 65);
+  --destructive: oklch(0.55 0.18 25);
+  --destructive-foreground: var(--primary-foreground);
+  --border: oklch(0.88 0.009 180);
+  --input: var(--border);
+  --ring: var(--primary);
+  --land: oklch(0.65 0.13 75);
+  --flood: oklch(0.59 0.115 235);
+  --ground: oklch(0.57 0.09 310);
+  --risk-high: oklch(0.59 0.17 32);
+  --risk-medium: oklch(0.66 0.14 80);
+  --risk-low: oklch(0.51 0.095 163);
+  --sidebar: oklch(0.255 0.018 185);
+  --sidebar-foreground: oklch(0.94 0.008 180);
+  --sidebar-primary: oklch(0.78 0.105 175);
+  --sidebar-primary-foreground: var(--sidebar);
+  --sidebar-accent: oklch(0.34 0.026 185);
+  --sidebar-accent-foreground: var(--sidebar-foreground);
+  --sidebar-border: oklch(0.38 0.015 185);
+  --sidebar-ring: var(--sidebar-primary);
+  --shadow-panel: 0 2px 8px oklch(0.26 0.018 185 / 3%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0;
+  }
+}
+
+@utility panel {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-panel);
+}
+
+@utility grid-backdrop {
+  background-image:
+    linear-gradient(to right, oklch(1 0 0 / 4%) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 4%) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+@utility label-caps {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+}
+
+/* Leaflet chrome tuned to the design system */
+.leaflet-container {
+  background: var(--color-surface-2);
+  font-family: var(--font-sans);
+}
+
+.leaflet-tile-pane {
+  filter: saturate(0.35) contrast(0.96);
+}
+
+.leaflet-bar,
+.leaflet-control-attribution {
+  background: var(--color-surface) !important;
+  color: var(--color-muted-foreground) !important;
+  border-color: var(--color-border) !important;
+}
+
+.leaflet-bar a {
+  background: var(--color-surface) !important;
+  color: var(--color-foreground) !important;
+  border-color: var(--color-border) !important;
+}
+
+.leaflet-control-attribution a {
+  color: var(--color-primary) !important;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: var(--color-popover);
+  color: var(--color-popover-foreground);
+  border-radius: var(--radius-lg);
+}
+
+@media print {
+  aside,
+  .workspace-nav,
+  .export-control {
+    display: none !important;
+  }
+
+  .workspace-main {
+    margin-left: 0 !important;
+  }
+
+  body {
+    print-color-adjust: exact;
+  }
+}
