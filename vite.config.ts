@@ -9,6 +9,9 @@ export default defineConfig({
     tsconfigPaths({ projects: ["./tsconfig.json"] }),
     tanstackStart({
       server: { entry: "./src/server.ts" },
+      tsr: {
+        appDirectory: "src",
+      },
     }),
     viteReact(),
     tailwindcss(),
