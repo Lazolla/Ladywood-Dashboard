@@ -8,10 +8,6 @@ export default defineConfig({
   plugins: [
     tsconfigPaths({ projects: ["./tsconfig.json"] }),
     tanstackStart({
-      server: {
-        entry: "./src/server.ts",
-        preset: "vercel",
-      },
       tsr: {
         appDirectory: "src",
       },
