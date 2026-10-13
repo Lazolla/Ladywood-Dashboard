@@ -1,13 +1,16 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/client",
-  "framework": null,
-  "installCommand": "npm install",
   "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "functions": {
+    "dist/server/server.js": {
+      "runtime": "nodejs24.x"
+    }
+  },
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": "/dist/server/server.js"
     }
   ]
 }
